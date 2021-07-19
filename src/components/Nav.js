@@ -17,14 +17,16 @@ export const Nav = () => {
 
   const openMenu = () => {
     setMenuState(!menuState);
+    setOptionsState(false);
   };
   const openOptions = () => {
     setOptionsState(!optionsState);
+    setMenuState(false);
   };
 
   return (
     <div className="h-[5vh] bg-gray-300 rounded-t-md flex flex-row items-center px-4 relative">
-      <div className="flex flex-row absolute">
+      <div className="absolute flex flex-row">
         <div className="h-[2vh] w-[2vh] bg-red-500 hover:bg-red-600 rounded-full mr-2 cursor-pointer"></div>
 
         <div
@@ -43,9 +45,9 @@ export const Nav = () => {
           </div>
         </div>
 
-        <ReactTooltip id="options-tip" place="top" type="dark" effect="solid">
+        {/* <ReactTooltip id="options-tip" place="top" type="dark" effect="solid">
           Options
-        </ReactTooltip>
+        </ReactTooltip> */}
 
         <div
           className="h-[2vh] w-[2vh] bg-green-500 hover:bg-green-600 rounded-full mr-2 cursor-pointer relative"
@@ -54,20 +56,31 @@ export const Nav = () => {
           data-for="menu-tip"
         >
           <div
-            className={`w-[200px]  h-[200px] absolute mt-10  bg-gray-100 rounded p-2 ${
+            className={`w-[150px]  absolute mt-10  bg-gray-100 rounded p-1 text-center ${
               menuState ? "visible" : "hidden"
             }`}
             ref={menuRef}
           >
-            Menu
+            <div className="p-1 text-left">
+              <div className="py-1 border-b-2 border-gray-300">
+                <u>H</u>ome <br />
+                <u>A</u>bout <br />
+              </div>
+              <div className="py-1 border-b-2 border-gray-300">
+                <u>Pr</u>ojects
+              </div>
+              <div className="py-1 ">
+                <u>C</u>ontact
+              </div>
+            </div>
           </div>
         </div>
 
-        <ReactTooltip id="menu-tip" place="top" type="dark" effect="solid">
+        {/* <ReactTooltip id="menu-tip" place="top" type="dark" effect="solid">
           Menu
-        </ReactTooltip>
+        </ReactTooltip> */}
       </div>
-      <div className="mx-auto md:text-lg text-sm">Aniket Singh Rawat</div>
+      <div className="mx-auto text-sm md:text-lg">Aniket Singh Rawat</div>
     </div>
   );
 };

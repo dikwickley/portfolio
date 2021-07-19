@@ -9,7 +9,8 @@ const ProcessNav = ({ project, kill }) => {
     <div className="h-[4vh] cursor-move  bg-gray-300 flex flex-row p-1 px-2 rounded-t-md items-center relative">
       <div className="absolute flex flex-row items-center">
         <div
-          onClick={() => {
+          onClick={(e) => {
+            e.stopPropagation()
             console.log("hi");
             kill(project);
           }}

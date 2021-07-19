@@ -25,7 +25,7 @@ export const LineInput = ({ inputHandler }) => {
         />
       </div>
       <div className="self-start text-yellow-300">
-        <Clock format={"HH:mm:ss"} ticking={true} timezone={"Asia/Pacific"} />
+        <Clock format={"HH:mm:ss"} ticking={true} timezone={"Asia/Calcutta"} />
       </div>
     </div>
   );

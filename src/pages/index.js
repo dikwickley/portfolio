@@ -22,18 +22,17 @@ export default function Home() {
               .changeCursor("▉")
               .changeDelay(10)
               .typeString("Hello! ")
-              .pauseFor(50)
               .typeString("I am Aniket.")
               .typeString("<br />")
-              .pauseFor(500)
+              .pauseFor(20)
               .typeString("Welcome to my portfolio.")
-              .pauseFor(1000)
+              .pauseFor(500)
               .typeString(
                 "<br /><br />Click or input a choice:<br /> 1> Projects "
               )
-              .pauseFor(50)
+              .pauseFor(20)
               .typeString("<br /> 2> About ")
-              .pauseFor(50)
+              .pauseFor(20)
               .typeString("<br /> 3> Contact ")
               .pauseFor(500)
               .callFunction(() => {

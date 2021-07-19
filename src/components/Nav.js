@@ -1,10 +1,8 @@
 import React, { useRef, useState } from "react";
+import Link from "next/link";
+
 import ReactTooltip from "react-tooltip";
 import { useDetectOutsideClick } from "../utils/useDetectOutsideClick";
-
-const DropDown = () => {
-  return;
-};
 
 export const Nav = () => {
   const menuRef = useRef(null);
@@ -27,8 +25,9 @@ export const Nav = () => {
   return (
     <div className="h-[5vh] bg-gray-300 rounded-t-md flex flex-row items-center px-4 relative">
       <div className="absolute flex flex-row">
-        <div className="h-[2vh] w-[2vh] bg-red-500 hover:bg-red-600 rounded-full mr-2 cursor-pointer"></div>
-
+        <Link href="/">
+          <div className="h-[2vh] w-[2vh] bg-red-500 hover:bg-red-600 rounded-full mr-2 cursor-pointer"></div>
+        </Link>
         <div
           className="h-[2vh] w-[2vh] bg-yellow-500 hover:bg-yellow-600 rounded-full mr-2 cursor-pointer relative"
           onClick={openOptions}

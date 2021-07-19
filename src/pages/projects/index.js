@@ -31,11 +31,14 @@ export default function Projects() {
             return (
               <div className="flex flex-row " key={index}>
                 <Link href={`/projects/${project.name}`}>
-                  <div className="cursor-pointer hover:text-purple-600 ]">
-                    {index + 1}&gt; {project.name}
+                  <div className="cursor-pointer hover:text-purple-600 w-[200px]">
+                    {index + 1}&gt; {project.name}:
                   </div>
                 </Link>
-                : <div className="text-green-500 cursor-pointer">view</div> /{" "}
+                <a target="_blank" href={`${project.url}`}>
+                  <div className="text-green-500 cursor-pointer">view</div>
+                </a>{" "}
+                /{" "}
                 <div
                   onClick={() => {
                     launchProcess(project);

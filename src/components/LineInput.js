@@ -15,7 +15,7 @@ export const LineInput = ({ inputHandler }) => {
           <Link href="/">
             <span className="cursor-pointer hover:text-red-600">home</span>
           </Link>
-          {router.pathname == "/" ? "" : router.pathname} ${" "}
+          {router.pathname == "/" ? "" : router.asPath} ${" "}
         </div>
 
         <input
@@ -25,7 +25,7 @@ export const LineInput = ({ inputHandler }) => {
         />
       </div>
       <div className="self-start text-yellow-300">
-        <Clock format={"HH:mm:ss"} ticking={true} timezone={"US/Pacific"} />
+        <Clock format={"HH:mm:ss"} ticking={true} timezone={"Asia/Pacific"} />
       </div>
     </div>
   );

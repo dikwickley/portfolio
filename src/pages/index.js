@@ -37,7 +37,7 @@ export default function Home() {
               .typeString("<br />")
               .pauseFor(20)
               .typeString("Welcome to my portfolio.")
-              .pauseFor(500)
+              .pauseFor(100)
               .typeString(
                 "<br /><br />Click or input a choice:<br /> 1> Projects "
               )
@@ -46,8 +46,10 @@ export default function Home() {
               .pauseFor(20)
               .typeString("<br /> 3> Contact ")
               .pauseFor(500)
-              .callFunction(() => {
+              .callFunction((state) => {
                 setShowText(true);
+                state.elements.cursor.style.animation = "none";
+                state.elements.cursor.style.display = "none";
               })
               .start();
           }}

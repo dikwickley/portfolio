@@ -35,7 +35,7 @@ export const Nav = () => {
           data-for="options-tip"
         >
           <div
-            className={`w-[200px]  h-[200px] absolute mt-10  bg-gray-100 rounded p-2 z-50 ${
+            className={`w-[200px]  h-[200px] absolute mt-10  bg-gray-100 rounded p-2 z-10 ${
               optionsState ? "visible" : "hidden"
             }`}
             ref={optionsRef}
@@ -55,7 +55,7 @@ export const Nav = () => {
           data-for="menu-tip"
         >
           <div
-            className={`w-[150px]  absolute mt-10  bg-gray-100 rounded p-1 text-center z-50 ${
+            className={`w-[150px]  absolute mt-10  bg-gray-100 rounded p-1 text-center z-10 ${
               menuState ? "visible" : "hidden"
             }`}
             ref={menuRef}

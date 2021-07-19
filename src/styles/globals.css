@@ -2,6 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
+.scaled-frame {
+  zoom: 0.7;
+  /* -moz-transform: scale(0.71);
+  -moz-transform-origin: 0 0;
+  -o-transform: scale(0.71);
+  -o-transform-origin: 0 0;
+  -webkit-transform: scale(0.71);
+  -webkit-transform-origin: 0 0; */
+}
+
+.zoom-100 {
+  zoom: 1;
+}
+.zoom-75 {
+  zoom: 0.75;
+}
+
+.zoom-50 {
+  zoom: 0.5;
+}
+
 html,
 body {
   padding: 0;

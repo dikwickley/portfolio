@@ -1,20 +1,14 @@
 export const projects = [
   {
     name: "thinktactoe",
-    about: "",
+    about: "A Multiplayer Tic tac toe game with video calling.",
     github: "",
-    url: "",
+    url: "https://thinktactoe.vercel.app/",
   },
   {
-    name: "thinktactoe2",
-    about: "",
+    name: "learn2sign",
+    about: "A hackathon Project using ML to teach sign language",
     github: "",
-    url: "",
-  },
-  {
-    name: "thinktactoe3",
-    about: "",
-    github: "",
-    url: "",
+    url: "https://learn2sign.vercel.app/",
   },
 ];

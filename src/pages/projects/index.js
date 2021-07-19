@@ -1,12 +1,22 @@
 import Link from "next/dist/client/link";
-import React from "react";
+import React, { useContext, useEffect } from "react";
+
+import { ProcessContext } from "./../../contexts/ProcessContext";
+
 import { projects } from "../../data/projects";
+
 import { Layout } from "../../components/Layout";
 import { LineInput } from "../../components/LineInput";
 
 export default function Projects() {
+  const { process, setProcess } = useContext(ProcessContext);
+
   const inputHandler = (e) => {
     console.log(e);
+  };
+
+  const launchProcess = (project) => {
+    setProcess([...process, project]);
   };
 
   return (
@@ -26,7 +36,14 @@ export default function Projects() {
                   </div>
                 </Link>
                 : <div className="text-green-500 cursor-pointer">view</div> /{" "}
-                <div className="text-red-500 cursor-pointer">launch</div>
+                <div
+                  onClick={() => {
+                    launchProcess(project);
+                  }}
+                  className="text-red-500 cursor-pointer"
+                >
+                  launch
+                </div>
               </div>
             );
           })}

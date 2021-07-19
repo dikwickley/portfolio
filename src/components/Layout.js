@@ -1,11 +1,19 @@
+import { useContext, useEffect } from "react";
 import Link from "next/link";
 import Head from "next/head";
 
+import { ProcessContext } from "./../contexts/ProcessContext";
+
 import { Nav } from "./Nav";
+import { Launch } from "./Launch";
 
 export function Layout({ children, title = "This is the default title" }) {
+  const { process, setProcess } = useContext(ProcessContext);
+
+  useEffect(() => {}, [process]);
+
   return (
-    <div className="bg-gray-200 h-[100vh] flex flex-row justify-center items-center ">
+    <div className="bg-gray-200 h-[100vh] flex flex-col justify-center items-center ">
       <Head>
         <title>{title}</title>
         <meta charSet="utf-8" />
@@ -16,7 +24,11 @@ export function Layout({ children, title = "This is the default title" }) {
         <meta name="apple-mobile-web-app-status-bar-style" content="#e5e7eb" />
       </Head>
 
-      <div className="w-[90vw] md:w-[80vw] h-[80vh] bg-black rounded-md rounded-t-lg">
+      {process.map((project, index) => {
+        return <Launch project={project} index={index} key={index} />;
+      })}
+
+      <div className="w-[90vw] md:w-[80vw] h-[80vh] bg-black rounded-md rounded-t-lg shadow-2xl">
         <Nav />
         <div className="max-h-[90%] p-2 md:p-4 overflow-auto font-mono text-white main overflow-x-hidden">
           {children}

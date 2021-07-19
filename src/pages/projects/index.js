@@ -19,7 +19,7 @@ export default function Projects() {
         <div>
           {projects.map((project, index) => {
             return (
-              <div className="flex flex-row ">
+              <div className="flex flex-row " key={index}>
                 <Link href={`/projects/${project.name}`}>
                   <div className="cursor-pointer hover:text-purple-600 ]">
                     {index + 1}&gt; {project.name}

@@ -35,7 +35,7 @@ export const Nav = () => {
           data-for="options-tip"
         >
           <div
-            className={`w-[200px]  h-[200px] absolute mt-10  bg-gray-100 rounded p-2 ${
+            className={`w-[200px]  h-[200px] absolute mt-10  bg-gray-100 rounded p-2 z-50 ${
               optionsState ? "visible" : "hidden"
             }`}
             ref={optionsRef}
@@ -55,21 +55,37 @@ export const Nav = () => {
           data-for="menu-tip"
         >
           <div
-            className={`w-[150px]  absolute mt-10  bg-gray-100 rounded p-1 text-center ${
+            className={`w-[150px]  absolute mt-10  bg-gray-100 rounded p-1 text-center z-50 ${
               menuState ? "visible" : "hidden"
             }`}
             ref={menuRef}
           >
             <div className="p-1 text-left">
               <div className="py-1 border-b-2 border-gray-300">
-                <u>H</u>ome <br />
-                <u>A</u>bout <br />
+                <Link href="/">
+                  <span>
+                    <u>H</u>ome <br />
+                  </span>
+                </Link>
+                <Link href="/about">
+                  <span>
+                    <u>A</u>bout <br />
+                  </span>
+                </Link>
               </div>
               <div className="py-1 border-b-2 border-gray-300">
-                <u>Pr</u>ojects
+                <Link href="/projects">
+                  <span>
+                    <u>Pr</u>ojects
+                  </span>
+                </Link>
               </div>
               <div className="py-1 ">
-                <u>C</u>ontact
+                <Link href="/contact">
+                  <span>
+                    <u>C</u>ontact
+                  </span>
+                </Link>
               </div>
             </div>
           </div>
@@ -79,7 +95,7 @@ export const Nav = () => {
           Menu
         </ReactTooltip> */}
       </div>
-      <div className="mx-auto text-sm md:text-lg">Aniket Singh Rawat.exe</div>
+      <div className="mx-auto text-sm md:text-lg">Aniket Singh Rawat</div>
     </div>
   );
 };

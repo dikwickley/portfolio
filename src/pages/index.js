@@ -9,6 +9,9 @@ import { LineInput } from "../components/LineInput";
 export default function Home() {
   const [showText, setShowText] = useState(false);
   const [option, setOption] = useState(0);
+  const [ascii, setAscii] = useState(
+    Math.floor(Math.random() * nameart.length)
+  );
 
   const inputHandler = (e) => {
     console.log(e);
@@ -19,11 +22,10 @@ export default function Home() {
       <pre
         className="cursor-pointer"
         onClick={(e) => {
-          e.target.innerHTML =
-            nameart[Math.floor(Math.random() * nameart.length)];
+          setAscii(Math.floor(Math.random() * nameart.length));
         }}
       >
-        {nameart[Math.floor(Math.random() * nameart.length)]}
+        {nameart[ascii]}
       </pre>
       {!showText && (
         <Typewriter

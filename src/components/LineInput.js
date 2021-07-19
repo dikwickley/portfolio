@@ -11,7 +11,7 @@ export const LineInput = ({ inputHandler }) => {
     <div className="flex flex-row items-center justify-between m-2">
       <div className="flex flex-col md:flex-row ">
         <div>
-          <span className="text-blue-400">Aniket</span>:~/
+          <span className="text-blue-400">aniket</span>:~/
           <Link href="/">
             <span className="cursor-pointer hover:text-red-600">home</span>
           </Link>

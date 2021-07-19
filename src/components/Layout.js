@@ -18,7 +18,7 @@ export function Layout({ children, title = "This is the default title" }) {
 
       <div className="w-[90vw] md:w-[80vw] h-[80vh] bg-black rounded-md rounded-t-lg">
         <Nav />
-        <div className="max-h-[90%] p-2 md:p-4 overflow-auto font-mono text-white main">
+        <div className="max-h-[90%] p-2 md:p-4 overflow-auto font-mono text-white main overflow-x-hidden">
           {children}
         </div>
       </div>

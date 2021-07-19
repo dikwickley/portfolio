@@ -10,6 +10,7 @@ export default function Contact() {
 
   return (
     <Layout title={"Contact"}>
+      email: sprx077@gmail.com
       <LineInput inputHandler={inputHandler} />
     </Layout>
   );

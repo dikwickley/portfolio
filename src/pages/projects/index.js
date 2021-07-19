@@ -1,6 +1,6 @@
 import Link from "next/dist/client/link";
 import React from "react";
-import data from "../../data/projects.json";
+import { projects } from "../../data/projects";
 import { Layout } from "../../components/Layout";
 import { LineInput } from "../../components/LineInput";
 
@@ -8,30 +8,29 @@ export default function Projects() {
   const inputHandler = (e) => {
     console.log(e);
   };
-  console.log("hi");
-  console.log(data);
 
   return (
     <Layout title={"Projects"}>
-      <div>
-        Hello! I am Aniket. <br /> Welcome to my portfolio.
-      </div>
+      <div>These are some of my projects</div>
       <br />
       <div>
         <div>Click or input a choice:</div>
-        <Link href="/projects">
-          <div className="cursor-pointer hover:text-green-600">
-            1&gt; Projects
-          </div>
-        </Link>
-        <Link href="/about">
-          <div className="cursor-pointer hover:text-green-600">2&gt; About</div>
-        </Link>
-        <Link href="/contact">
-          <div className="cursor-pointer hover:text-green-600">
-            3&gt; Contact
-          </div>
-        </Link>
+
+        <div>
+          {projects.map((project, index) => {
+            return (
+              <div className="flex flex-row ">
+                <Link href={`/projects/${project.name}`}>
+                  <div className="cursor-pointer hover:text-purple-600 ]">
+                    {index + 1}&gt; {project.name}
+                  </div>
+                </Link>
+                : <div className="text-green-500 cursor-pointer">view</div> /{" "}
+                <div className="text-red-500 cursor-pointer">launch</div>
+              </div>
+            );
+          })}
+        </div>
       </div>
       <LineInput inputHandler={inputHandler} />
     </Layout>

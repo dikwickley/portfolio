@@ -9,9 +9,9 @@ export const LineInput = ({ inputHandler }) => {
 
   return (
     <div className="flex flex-row items-center justify-between m-2">
-      <div className="flex flex-row flex-grow">
+      <div className="flex flex-col md:flex-row ">
         <div>
-          Aniket:~/
+          <span className="text-blue-400">Aniket</span>:~/
           <Link href="/">
             <span className="cursor-pointer hover:text-red-600">home</span>
           </Link>
@@ -21,10 +21,10 @@ export const LineInput = ({ inputHandler }) => {
         <input
           onKeyDown={inputHandler}
           type="text"
-          className="flex-grow ml-2 text-white bg-transparent outline-none"
+          className="ml-2 text-white bg-transparent outline-none "
         />
       </div>
-      <div>
+      <div className="self-start text-yellow-300">
         <Clock format={"HH:mm:ss"} ticking={true} timezone={"US/Pacific"} />
       </div>
     </div>

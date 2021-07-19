@@ -61,9 +61,11 @@ export default function Home() {
                 2&gt; About
               </div>
             </Link>
-            <div className="cursor-pointer hover:text-green-600">
-              3&gt; Contact
-            </div>
+            <Link href="/contact">
+              <div className="cursor-pointer hover:text-green-600">
+                3&gt; Contact
+              </div>
+            </Link>
           </div>
         </div>
       )}

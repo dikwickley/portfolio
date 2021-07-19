@@ -10,6 +10,10 @@ export function Layout({ children, title = "This is the default title" }) {
         <title>{title}</title>
         <meta charSet="utf-8" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+
+        <meta name="theme-color" content="#e5e7eb" />
+        <meta name="msapplication-navbutton-color" content="#e5e7eb" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="#e5e7eb" />
       </Head>
 
       <div className="w-[90vw] md:w-[80vw] h-[80vh] bg-black rounded-md rounded-t-lg">

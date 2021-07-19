@@ -80,7 +80,7 @@ export const Nav = () => {
           Menu
         </ReactTooltip> */}
       </div>
-      <div className="mx-auto text-sm md:text-lg">Aniket Singh Rawat</div>
+      <div className="mx-auto text-sm md:text-lg">Aniket Singh Rawat.exe</div>
     </div>
   );
 };

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { useState } from "react";
 import Typewriter from "typewriter-effect";
 
+import { nameart } from "./../data/nameart";
 import { Layout } from "../components/Layout";
 import { LineInput } from "../components/LineInput";
 
@@ -15,6 +16,15 @@ export default function Home() {
 
   return (
     <Layout title={"Home"}>
+      <pre
+        className="cursor-pointer"
+        onClick={(e) => {
+          e.target.innerHTML =
+            nameart[Math.floor(Math.random() * nameart.length)];
+        }}
+      >
+        {nameart[Math.floor(Math.random() * nameart.length)]}
+      </pre>
       {!showText && (
         <Typewriter
           onInit={(typewriter) => {
@@ -22,7 +32,6 @@ export default function Home() {
               .changeCursor("▉")
               .changeDelay(10)
               .typeString("Hello! ")
-              .typeString("I am Aniket.")
               .typeString("<br />")
               .pauseFor(20)
               .typeString("Welcome to my portfolio.")
@@ -46,7 +55,7 @@ export default function Home() {
       {showText && (
         <div>
           <div>
-            Hello! I am Aniket. <br /> Welcome to my portfolio.
+            Hello! <br /> Welcome to my portfolio.
           </div>
           <br />
           <div>

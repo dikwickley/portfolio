@@ -10,6 +10,7 @@ export default function About() {
 
   return (
     <Layout title={"About"}>
+      About <br />
       I am a webdeveloper.
       <LineInput inputHandler={inputHandler} />
     </Layout>

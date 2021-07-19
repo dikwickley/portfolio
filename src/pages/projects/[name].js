@@ -26,7 +26,7 @@ export default function ProjectPage({ project }) {
   return (
     <Layout title={`Project | ${project.name} `}>
       <div className="flex">
-        <a target="_blank" href={`${project.url}`}>
+        <a target="_blank" rel="noreferrer" href={`${project.url}`}>
           <div className="text-green-500 cursor-pointer">view</div>
         </a>
         /
@@ -66,7 +66,7 @@ export default function ProjectPage({ project }) {
               .changeCursor("▉")
               .changeDelay(10)
               .typeString(
-                `<a target="_blank" href="${project.github}">${project.github}</a>`
+                `<a target="_blank" rel="noreferrer" href="${project.github}">${project.github}</a>`
               )
               .callFunction((state) => {
                 state.elements.cursor.style.animation = "none";

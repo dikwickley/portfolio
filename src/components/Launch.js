@@ -15,7 +15,7 @@ const ProcessNav = ({ project, kill }) => {
           }}
           className="h-[2vh] w-[2vh] mr-2 bg-red-500 rounded-full cursor-pointer"
         ></div>
-        <a target="_blank" href={project.url}>
+        <a target="_blank" rel="noreferrer" href={project.url}>
           <div className="h-[2vh] w-[2vh] mr-2 bg-green-500 rounded-full"></div>
         </a>
       </div>

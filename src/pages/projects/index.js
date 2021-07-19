@@ -35,7 +35,7 @@ export default function Projects() {
                     {index + 1}&gt; {project.name}:
                   </div>
                 </Link>
-                <a target="_blank" href={`${project.url}`}>
+                <a target="_blank" rel="noreferrer" href={`${project.url}`}>
                   <div className="text-green-500 cursor-pointer">view</div>
                 </a>{" "}
                 /{" "}

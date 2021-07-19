@@ -17,6 +17,7 @@ export default function Contact() {
       <a
         className="hover:text-red-500"
         target="_blank"
+        rel="noreferrer"
         href="https://www.linkedin.com/in/dikwickley/"
       >
         https://www.linkedin.com/in/dikwickley/
@@ -26,6 +27,7 @@ export default function Contact() {
       <a
         className="hover:text-red-500"
         target="_blank"
+        rel="noreferrer"
         href="https://www.instagram.com/aniket.singh.rawat/"
       >
         https://www.instagram.com/aniket.singh.rawat/

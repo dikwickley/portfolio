@@ -28,9 +28,9 @@ export function Layout({ children, title = "This is the default title" }) {
         return <Launch project={project} index={index} key={index} />;
       })}
 
-      <div className="w-[90vw] md:w-[80vw] h-[80vh] bg-black rounded-md rounded-t-lg shadow-2xl">
+      <div className="w-[90vw] md:w-[70vw] h-[80vh] bg-black rounded-md rounded-t-lg shadow-2xl">
         <Nav />
-        <div className="max-h-[90%] p-2 md:p-4 overflow-auto font-mono text-white main overflow-x-hidden">
+        <div className="max-h-[90%] p-2 md:p-4 overflow-auto font-mono text-white main overflow-x-hidden  sm:text-xl">
           {children}
         </div>
       </div>

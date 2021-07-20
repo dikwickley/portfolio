@@ -1,7 +1,6 @@
 import React, { useRef, useState } from "react";
 import Link from "next/link";
 
-import ReactTooltip from "react-tooltip";
 import { useDetectOutsideClick } from "../utils/useDetectOutsideClick";
 
 export const Nav = () => {
@@ -23,14 +22,14 @@ export const Nav = () => {
   };
 
   return (
-    <div className="h-[5vh] bg-gray-300 rounded-t-md flex flex-row items-center px-4 relative">
+    <div className="h-[50px] bg-gray-300 rounded-t-md flex flex-row items-center px-4 relative">
       <div className="absolute flex flex-row">
         <Link href="/">
-          <div className="h-[2vh] w-[2vh] bg-red-500 hover:bg-red-600 rounded-full mr-2 cursor-pointer"></div>
+          <div className="h-[20px] w-[20px] bg-red-500 hover:bg-red-600 rounded-full mr-2 cursor-pointer"></div>
         </Link>
         <div
-          className="h-[2vh] w-[2vh] bg-yellow-500 hover:bg-yellow-600 rounded-full mr-2 cursor-pointer relative"
-          onClick={openOptions}
+          className="h-[20px] w-[20px] bg-yellow-500 hover:bg-yellow-600 rounded-full mr-2 cursor-pointer relative"
+          // onClick={openOptions}
           data-tip
           data-for="options-tip"
         >
@@ -49,7 +48,7 @@ export const Nav = () => {
         </ReactTooltip> */}
 
         <div
-          className="h-[2vh] w-[2vh] bg-green-500 hover:bg-green-600 rounded-full mr-2 cursor-pointer relative"
+          className="h-[20px] w-[20px] bg-green-500 hover:bg-green-600 rounded-full mr-2 cursor-pointer relative"
           onClick={openMenu}
           data-tip
           data-for="menu-tip"

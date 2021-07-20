@@ -6,18 +6,17 @@ import { ProcessContext } from "../contexts/ProcessContext";
 
 const ProcessNav = ({ project, kill }) => {
   return (
-    <div className="h-[4vh] cursor-move  bg-gray-300 flex flex-row p-1 px-2 rounded-t-md items-center relative">
+    <div className="h-[40px] cursor-move  bg-gray-300 flex flex-row p-1 px-2 rounded-t-md items-center relative">
       <div className="absolute flex flex-row items-center">
         <div
           onClick={(e) => {
-           
             console.log("hi");
             kill(project);
           }}
-          className="navbtn h-[2vh] w-[2vh] mr-2 bg-red-500 rounded-full cursor-pointer"
+          className="navbtn h-[20px] w-[20px] mr-2 bg-red-500 rounded-full cursor-pointer"
         ></div>
         <a target="_blank" rel="noreferrer" href={project.url}>
-          <div className="navbtn h-[2vh] w-[2vh] mr-2 bg-green-500 rounded-full"></div>
+          <div className="navbtn h-[20px] w-[20px] mr-2 bg-green-500 rounded-full"></div>
         </a>
       </div>
       <div className="mx-auto">{project.name}</div>
@@ -33,7 +32,10 @@ export const Launch = ({ project, index }) => {
     setProcess(processes);
   };
   return (
-    <Draggable cancel=".navbtn" defaultPosition={{ x: index * 20, y: index * 20 }}>
+    <Draggable
+      cancel=".navbtn"
+      defaultPosition={{ x: index * 20, y: index * 20 }}
+    >
       <div className="w-[35vh] h-[25vh]  md:w-[30vw] md:h-[30vh] bg-white absolute z-20 rounded-md rounded-t-lg shadow-2xl flex flex-col overflow-hidden">
         <ProcessNav project={project} kill={kill} />
         <div className="flex-grow">

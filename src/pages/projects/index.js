@@ -1,5 +1,5 @@
 import Link from "next/dist/client/link";
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useState } from "react";
 
 import { ProcessContext } from "./../../contexts/ProcessContext";
 
@@ -7,14 +7,34 @@ import { projects } from "../../data/projects";
 
 import { Layout } from "../../components/Layout";
 import { LineInput } from "../../components/LineInput";
+import router from "next/router";
 
 export default function Projects() {
   const { process, setProcess } = useContext(ProcessContext);
 
-  const inputHandler = (e) => {
-    console.log(e);
-  };
+  const [inputError, setInputError] = useState(false);
+  const hideError = setInterval(() => {
+    setInputError(false);
+  }, 2000);
 
+  const inputHandler = (e) => {
+    // console.log(e.key);
+    // console.log(e.target.value);
+
+    if (e.target.value === "cd" && e.key === "Enter") {
+      router.push("/");
+      return;
+    }
+
+    let projectNum = parseInt(e.target.value);
+    if (e.key === "Enter")
+      if (projectNum > projects.length) {
+        setInputError(true);
+        hideError;
+      } else {
+        router.push(`/projects/${projects[projectNum - 1].name}`);
+      }
+  };
   const launchProcess = (project) => {
     setProcess([...process, project]);
   };
@@ -53,6 +73,7 @@ export default function Projects() {
         </div>
       </div>
       <LineInput inputHandler={inputHandler} />
+      {inputError && <div className="text-red-500">Wrong input!</div>}
     </Layout>
   );
 }

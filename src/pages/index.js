@@ -1,20 +1,46 @@
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Typewriter from "typewriter-effect";
+
+import { useRouter } from "next/router";
 
 import { nameart } from "./../data/nameart";
 import { Layout } from "../components/Layout";
 import { LineInput } from "../components/LineInput";
 
 export default function Home() {
+  const router = useRouter();
+
   const [showText, setShowText] = useState(false);
   const [option, setOption] = useState(0);
   const [ascii, setAscii] = useState(
     Math.floor(Math.random() * nameart.length)
   );
 
+  const [inputError, setInputError] = useState(false);
+  const hideError = setInterval(() => {
+    setInputError(false);
+  }, 20000);
+
   const inputHandler = (e) => {
-    console.log(e);
+    // console.log(e.key);
+    // console.log(e.target.value);
+
+    if (e.key === "Enter")
+      switch (e.target.value) {
+        case "1":
+          router.push("/projects");
+          break;
+        case "2":
+          router.push("/about");
+          break;
+        case "3":
+          router.push("/contact");
+          break;
+        default:
+          setInputError(true);
+          hideError;
+      }
   };
 
   return (
@@ -84,7 +110,9 @@ export default function Home() {
       )}
 
       {showText && <div></div>}
+
       <LineInput inputHandler={inputHandler} />
+      {inputError && <div className="text-red-500">Wrong input!</div>}
     </Layout>
   );
 }

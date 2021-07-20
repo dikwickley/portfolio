@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import { useRouter } from "next/router";
 import Typewriter from "typewriter-effect";
 import { projects } from "../../data/projects";
@@ -15,8 +15,20 @@ export default function ProjectPage({ project }) {
 
   useEffect(() => {}, []);
 
+  const [inputError, setInputError] = useState(false);
+  const hideError = setInterval(() => {
+    setInputError(false);
+  }, 20000);
   const inputHandler = (e) => {
-    console.log(e);
+    // console.log(e);
+    if (e.key === "Enter") {
+      if (e.target.value === "cd") {
+        router.push("/projects");
+      } else {
+        setInputError(true);
+        hideError;
+      }
+    }
   };
 
   const launchProcess = (project) => {

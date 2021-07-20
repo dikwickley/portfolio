@@ -8,7 +8,7 @@ export const LineInput = ({ inputHandler }) => {
   const router = useRouter();
 
   return (
-    <div className="flex flex-row items-center justify-between m-2">
+    <div className="flex flex-col items-start justify-start m-2 sm:justify-between sm:flex-row">
       <div className="flex flex-col md:flex-row ">
         <div>
           <span className="text-blue-400">aniket</span>:~/
@@ -24,7 +24,7 @@ export const LineInput = ({ inputHandler }) => {
           className="ml-2 text-white bg-transparent outline-none "
         />
       </div>
-      <div className="self-start text-yellow-300">
+      <div className="self-start text-yellow-300 ">
         <Clock format={"HH:mm:ss"} ticking={true} timezone={"Asia/Calcutta"} />
       </div>
     </div>

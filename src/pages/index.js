@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import Typewriter from "typewriter-effect";
+import Cookies from "universal-cookie";
 
 import { useRouter } from "next/router";
 
@@ -10,6 +11,7 @@ import { LineInput } from "../components/LineInput";
 
 export default function Home() {
   const router = useRouter();
+  const cookies = new Cookies();
 
   const [showText, setShowText] = useState(false);
   const [option, setOption] = useState(0);
@@ -18,9 +20,10 @@ export default function Home() {
   );
 
   const [inputError, setInputError] = useState(false);
+
   const hideError = setInterval(() => {
     setInputError(false);
-  }, 20000);
+  }, 2000);
 
   const inputHandler = (e) => {
     // console.log(e.key);
@@ -42,6 +45,14 @@ export default function Home() {
           hideError;
       }
   };
+
+  useEffect(() => {
+    if (cookies.get("home")) {
+      setShowText(true);
+    } else {
+      cookies.set("home", true, { path: "/", maxAge: 5 * 60 });
+    }
+  });
 
   return (
     <Layout title={"Home"}>

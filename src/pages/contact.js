@@ -50,6 +50,7 @@ export default function Contact() {
       </a>{" "}
       <br />
       <LineInput inputHandler={inputHandler} />
+      {inputError && <div className="text-red-500">Wrong input!</div>}
     </Layout>
   );
 }

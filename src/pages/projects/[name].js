@@ -104,6 +104,7 @@ export default function ProjectPage({ project }) {
         />
       </div>
       <LineInput inputHandler={inputHandler} />
+      {inputError && <div className="text-red-500">Wrong input!</div>}
     </Layout>
   );
 }

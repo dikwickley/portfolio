@@ -13,7 +13,7 @@ export function Layout({ children, title = "This is the default title" }) {
   useEffect(() => {}, [process]);
 
   return (
-    <div className="bg-gray-200 h-[100vh] flex flex-col justify-center items-center ">
+    <div className="bg-gray-200 h-[100vh] flex flex-col justify-center items-center max-w-full overflow-x-hidden main-div">
       <Head>
         <title>{title}</title>
         <meta charSet="utf-8" />

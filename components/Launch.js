@@ -44,10 +44,18 @@ export const Launch = ({ project, index }) => {
       default={{
         x: window.innerWidth / 3 + (index + 1) * 20,
         y: window.innerHeight / 3 + (index + 1) * 20,
-        width: 520,
-        height: 300,
+        width:
+          window.innerHeight > window.innerWidth
+            ? window.innerHeight / 3
+            : window.innerWidth / 4,
+        height:
+          window.innerHeight > window.innerWidth
+            ? window.innerWidth / 2
+            : window.innerHeight / 4,
       }}
       className="absolute z-20 flex flex-col overflow-hidden bg-white rounded-md rounded-t-lg shadow-2xl"
+      cancel=".navbtn"
+      bounds=".main-div"
     >
       <ProcessNav project={project} kill={kill} />
       <iframe src={project.url} className="w-[100%] h-[90%] " frameBorder={0} />

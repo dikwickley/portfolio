@@ -2,15 +2,13 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import { Layout } from "../components/Layout";
 import { LineInput } from "../components/LineInput";
-import Image from 'next/image'
-
-
+import Image from "next/image";
 
 export default function About() {
   const router = useRouter();
 
   const [inputError, setInputError] = useState(false);
-  const [resumeToggle, setResumeToggle] = useState(false)
+  const [resumeToggle, setResumeToggle] = useState(false);
 
   const hideError = setInterval(() => {
     setInputError(false);
@@ -33,9 +31,22 @@ export default function About() {
       About <br />
       I am a webdeveloper. <br />
       {/* <a href="/Aniket_resume20210827.pdf" download >portfolio</a> */}
-      Resume - <span className="cursor-pointer hover:text-green-600" onClick={()=>setResumeToggle(!resumeToggle)}>{!resumeToggle?"View":"Hide"}</span> | <span className="cursor-pointer hover:text-blue-600 "><a href="/Aniket_resume20210827.pdf" download >Download</a></span>
-
-      {resumeToggle && <Image src="./Aniket_resume20210827.jpg" alt="portfolio"/>}
+      Resume -{" "}
+      <span
+        className="cursor-pointer hover:text-green-600"
+        onClick={() => setResumeToggle(!resumeToggle)}
+      >
+        {!resumeToggle ? "View" : "Hide"}
+      </span>{" "}
+      |{" "}
+      <span className="cursor-pointer hover:text-blue-600 ">
+        <a href="/Aniket_resume20210827.pdf" download>
+          Download
+        </a>
+      </span>
+      {resumeToggle && (
+        <img src="./Aniket_resume20210827.jpg" alt="portfolio" />
+      )}
       <LineInput inputHandler={inputHandler} />
       {inputError && <div className="text-red-500">Wrong input!</div>}
     </Layout>

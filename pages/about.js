@@ -33,7 +33,9 @@ export default function About() {
       {/* <a href="/Aniket_resume20210827.pdf" download >portfolio</a> */}
       Resume -{" "}
       <span
-        className="cursor-pointer hover:text-green-600"
+        className={`cursor-pointer hover:${
+          !resumeToggle ? "text-green-600" : "text-red-600"
+        }`}
         onClick={() => setResumeToggle(!resumeToggle)}
       >
         {!resumeToggle ? "View" : "Hide"}
@@ -45,7 +47,10 @@ export default function About() {
         </a>
       </span>
       {resumeToggle && (
-        <img src="./Aniket_resume20210827.jpg" alt="portfolio" />
+        <img
+          src="https://aniketsinghrawat.vercel.app/Aniket_resume20210827.jpg"
+          alt="resume"
+        />
       )}
       <LineInput inputHandler={inputHandler} />
       {inputError && <div className="text-red-500">Wrong input!</div>}

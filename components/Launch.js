@@ -1,12 +1,15 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import Draggable from "react-draggable"; // The default
+import { Resizable } from "react-resizable";
+import { Rnd } from "react-rnd";
+
 import Link from "next/link";
 
 import { ProcessContext } from "../contexts/ProcessContext";
 
 const ProcessNav = ({ project, kill }) => {
   return (
-    <div className="h-[40px] cursor-move  bg-gray-300 flex flex-row p-1 px-2 rounded-t-md items-center relative">
+    <div className="h-[40px] w-[100%] cursor-move  bg-gray-300 flex flex-row p-1 px-2 rounded-t-md items-center relative">
       <div className="absolute flex flex-row items-center">
         <div
           onClick={(e) => {
@@ -31,21 +34,24 @@ export const Launch = ({ project, index }) => {
     processes.splice(process.indexOf(project), 1);
     setProcess(processes);
   };
+
   return (
-    <Draggable
-      cancel=".navbtn"
-      defaultPosition={{ x: index * 20, y: index * 20 }}
+    // <Draggable
+    //   cancel=".navbtn, .resize-button"
+    //   defaultPosition={{ x: index * 20, y: index * 20 }}
+    // >
+    <Rnd
+      default={{
+        x: window.innerWidth / 3 + (index + 1) * 20,
+        y: window.innerHeight / 3 + (index + 1) * 20,
+        width: 520,
+        height: 300,
+      }}
+      className="absolute z-20 flex flex-col overflow-hidden bg-white rounded-md rounded-t-lg shadow-2xl"
     >
-      <div className="w-[35vh] h-[25vh]  md:w-[30vw] md:h-[30vh] bg-white absolute z-20 rounded-md rounded-t-lg shadow-2xl flex flex-col overflow-hidden">
-        <ProcessNav project={project} kill={kill} />
-        <div className="flex-grow">
-          <iframe
-            src={project.url}
-            className="w-[100%] h-[100%] "
-            frameBorder={0}
-          />
-        </div>
-      </div>
-    </Draggable>
+      <ProcessNav project={project} kill={kill} />
+      <iframe src={project.url} className="w-[100%] h-[90%] " frameBorder={0} />
+    </Rnd>
+    // </Draggable>
   );
 };

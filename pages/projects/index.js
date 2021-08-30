@@ -1,7 +1,7 @@
 import Link from "next/dist/client/link";
 import React, { useContext, useState } from "react";
 
-import { ProcessContext } from "../../contexts";
+import { ProcessContext, FocusContext } from "../../contexts";
 
 import { projects } from "../../data/projects";
 
@@ -11,6 +11,7 @@ import router from "next/router";
 
 export default function Projects() {
   const { process, setProcess } = useContext(ProcessContext);
+  const { focus, setFocus } = useContext(FocusContext);
 
   const [inputError, setInputError] = useState(false);
   const hideError = setInterval(() => {
@@ -40,6 +41,14 @@ export default function Projects() {
     // console.log(project);
 
     let processes = [...process];
+    //check if process already running
+    for (let i = 0; i < process.length; i++) {
+      if (process[i] !== null && process[i].name == project.name) {
+        setFocus(i);
+        return;
+      }
+    }
+
     for (let i = 0; i < process.length; i++) {
       if (processes[i] === null) {
         //also condition for if process already exists can be put here

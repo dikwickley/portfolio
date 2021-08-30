@@ -1,11 +1,9 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Draggable from "react-draggable"; // The default
 import { Resizable } from "react-resizable";
 import { Rnd } from "react-rnd";
 
-import Link from "next/link";
-
-import { ProcessContext } from "../contexts/ProcessContext";
+import { ProcessContext } from "../contexts";
 
 const ProcessNav = ({ project, kill, changeFocus, focus }) => {
   return (
@@ -41,15 +39,29 @@ const ProcessNav = ({ project, kill, changeFocus, focus }) => {
 
 export const Launch = ({ project, index, changeFocus, focus }) => {
   const { process, setProcess } = useContext(ProcessContext);
+  const [position, setPosition] = useState({
+    x: project.position.x,
+    y: project.position.y,
+  });
+
+  useEffect(() => {
+    changeFocus();
+  }, []);
 
   const kill = (project) => {
     let processes = [...process];
-    processes.splice(process.indexOf(project), 1);
+    // processes.splice(process.indexOf(project), 1);
+    for (let i = 0; i < process.length; i++) {
+      if (process[i] !== null && processes[i].name == project.name) {
+        processes[i] = null;
+      }
+    }
     setProcess(processes);
   };
 
   return (
     <Rnd
+      // position={{ x: position.x, y: position.y }}
       default={{
         x: window.innerWidth / 3 + (index + 1) * 20,
         y: window.innerHeight / 3 + (index + 1) * 20,

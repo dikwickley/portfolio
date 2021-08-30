@@ -1,7 +1,7 @@
 import Link from "next/dist/client/link";
 import React, { useContext, useState } from "react";
 
-import { ProcessContext } from "./../../contexts/ProcessContext";
+import { ProcessContext } from "../../contexts";
 
 import { projects } from "../../data/projects";
 
@@ -35,8 +35,25 @@ export default function Projects() {
         router.push(`/projects/${projects[projectNum - 1].name}`);
       }
   };
+
   const launchProcess = (project) => {
-    setProcess([...process, project]);
+    // console.log(project);
+
+    let processes = [...process];
+    for (let i = 0; i < process.length; i++) {
+      if (processes[i] === null) {
+        //also condition for if process already exists can be put here
+        project.position = {
+          x: window.innerWidth / 3 + (i + 1) * 20,
+          y: window.innerHeight / 3 + (i + 1) * 20,
+        };
+        processes[i] = project;
+        break;
+      }
+    }
+
+    setProcess(processes);
+    console.log({ process });
   };
 
   return (

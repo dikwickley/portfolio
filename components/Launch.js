@@ -7,19 +7,31 @@ import Link from "next/link";
 
 import { ProcessContext } from "../contexts/ProcessContext";
 
-const ProcessNav = ({ project, kill }) => {
+const ProcessNav = ({ project, kill, changeFocus, focus }) => {
   return (
-    <div className="h-[40px] w-[100%] cursor-move  bg-gray-300 flex flex-row p-1 px-2 rounded-t-md items-center relative">
+    <div
+      // onClick={changeFocus}
+      onMouseDown={changeFocus}
+      className={`h-[40px] w-[100%] cursor-move  ${
+        focus ? "bg-gray-300" : "bg-gray-200"
+      } flex flex-row p-1 px-2 rounded-t-md items-center relative`}
+    >
       <div className="absolute flex flex-row items-center">
         <div
           onClick={(e) => {
             console.log("hi");
             kill(project);
           }}
-          className="navbtn h-[20px] w-[20px] mr-2 bg-red-500 rounded-full cursor-pointer"
+          className={`navbtn h-[20px] w-[20px] mr-2 ${
+            focus ? "bg-red-500" : "bg-red-400"
+          } rounded-full cursor-pointer`}
         ></div>
         <a target="_blank" rel="noreferrer" href={project.url}>
-          <div className="navbtn h-[20px] w-[20px] mr-2 bg-green-500 rounded-full"></div>
+          <div
+            className={`navbtn h-[20px] w-[20px] mr-2 ${
+              focus ? "bg-green-500" : "bg-green-400"
+            } rounded-full`}
+          ></div>
         </a>
       </div>
       <div className="mx-auto">{project.name}</div>
@@ -27,8 +39,9 @@ const ProcessNav = ({ project, kill }) => {
   );
 };
 
-export const Launch = ({ project, index }) => {
+export const Launch = ({ project, index, changeFocus, focus }) => {
   const { process, setProcess } = useContext(ProcessContext);
+
   const kill = (project) => {
     let processes = [...process];
     processes.splice(process.indexOf(project), 1);
@@ -36,10 +49,6 @@ export const Launch = ({ project, index }) => {
   };
 
   return (
-    // <Draggable
-    //   cancel=".navbtn, .resize-button"
-    //   defaultPosition={{ x: index * 20, y: index * 20 }}
-    // >
     <Rnd
       default={{
         x: window.innerWidth / 3 + (index + 1) * 20,
@@ -53,13 +62,20 @@ export const Launch = ({ project, index }) => {
             ? window.innerWidth / 2
             : window.innerHeight / 4,
       }}
-      className="absolute z-20 flex flex-col overflow-hidden bg-white rounded-md rounded-t-lg shadow-2xl"
+      className={`absolute flex flex-col overflow-hidden bg-white rounded-md rounded-t-lg shadow-2xl ${
+        focus === index ? "z-50" : "z-20"
+      }`}
       cancel=".navbtn"
       bounds=".main-div"
+      onMouseDown={changeFocus}
     >
-      <ProcessNav project={project} kill={kill} />
+      <ProcessNav
+        project={project}
+        kill={kill}
+        changeFocus={changeFocus}
+        focus={focus === index}
+      />
       <iframe src={project.url} className="w-[100%] h-[90%] " frameBorder={0} />
     </Rnd>
-    // </Draggable>
   );
 };

@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import Link from "next/link";
 import Head from "next/head";
 
@@ -9,6 +9,7 @@ import { Launch } from "./Launch";
 
 export function Layout({ children, title = "This is the default title" }) {
   const { process, setProcess } = useContext(ProcessContext);
+  const [focus, setFocus] = useState(0);
 
   useEffect(() => {}, [process]);
 
@@ -25,7 +26,17 @@ export function Layout({ children, title = "This is the default title" }) {
       </Head>
 
       {process.map((project, index) => {
-        return <Launch project={project} index={index} key={index} />;
+        return (
+          <Launch
+            project={project}
+            index={index}
+            key={index}
+            changeFocus={() => {
+              setFocus(index);
+            }}
+            focus={focus}
+          />
+        );
       })}
 
       <div className="w-[90vw] md:w-[70vw] h-[80vh] bg-black rounded-md rounded-t-lg shadow-2xl">

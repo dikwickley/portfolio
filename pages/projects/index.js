@@ -62,7 +62,6 @@ export default function Projects() {
     }
 
     setProcess(processes);
-    console.log({ process });
   };
 
   return (

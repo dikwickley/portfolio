@@ -29,7 +29,10 @@ export default function About() {
   return (
     <Layout title={"About"}>
       About <br />
-      I am a webdeveloper. <br />
+      I am a guy who likes to build projects. I have gained my experience by
+      working in the industry at various startups and would like to learn even
+      more. <br />
+      I am also very keen on anime and stuff. <br />
       {/* <a href="/Aniket_resume20210827.pdf" download >portfolio</a> */}
       Resume -{" "}
       <span

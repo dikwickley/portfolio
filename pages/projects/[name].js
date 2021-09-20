@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import Typewriter from "typewriter-effect";
 import { projects } from "../../data/projects";
 
-import { ProcessContext } from "./../../contexts/ProcessContext";
+import { ProcessContext } from "./../../contexts/index";
 
 import { Layout } from "../../components/Layout";
 import { LineInput } from "../../components/LineInput";

@@ -32,7 +32,30 @@ export default function ProjectPage({ project }) {
   };
 
   const launchProcess = (project) => {
-    setProcess([...process, project]);
+    // console.log(project);
+
+    let processes = [...process];
+    //check if process already running
+    for (let i = 0; i < process.length; i++) {
+      if (process[i] !== null && process[i].name == project.name) {
+        setFocus(i);
+        return;
+      }
+    }
+
+    for (let i = 0; i < process.length; i++) {
+      if (processes[i] === null) {
+        //also condition for if process already exists can be put here
+        project.position = {
+          x: window.innerWidth / 3 + (i + 1) * 20,
+          y: window.innerHeight / 3 + (i + 1) * 20,
+        };
+        processes[i] = project;
+        break;
+      }
+    }
+
+    setProcess(processes);
   };
 
   return (

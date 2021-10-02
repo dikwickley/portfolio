@@ -27,7 +27,10 @@ export default function Contact() {
   return (
     <Layout title={"Contact"}>
       Contact <br />
-      email:<span className="hover:text-red-500"> sprx077@gmail.com</span>{" "}
+      email:<span className="hover:text-red-500">
+        {" "}
+        aniket.txt@gmail.com
+      </span>{" "}
       <br />
       linkedIn:{" "}
       <a
